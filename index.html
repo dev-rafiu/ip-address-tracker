@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- displays site properly based on user's device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- font awesome link -->
+    <script
+      src="https://kit.fontawesome.com/8d7b7c02c4.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- css file -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- js file -->
+    <script src="./script.js" defer></script>
+    <title>Frontend Mentor | IP Address Tracker</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="container">
+          <h1 class="title">IP Address Tracker</h1>
+          <form class="" data-search-form>
+            <input
+              type="text"
+              placeholder="  Search for any IP address or domain"
+              class="address-input"
+            />
+            <button type="submit" class="submit-btn" data-submit-btn>
+              <img src="./images/icon-arrow.svg" alt="" />
+            </button>
+          </form>
+        </div>
+      </header>
+      <div class="result-modal">
+        <div><p>IP Address</p></div>
+        <div><p>Location</p></div>
+        <div><p>Timezone</p></div>
+        <div><p>UTC</p></div>
+        <div><p>ISP</p></div>
+      </div>
+      <main></main>
+    </div>
+
+    <!-- add offset value dynamically using the API -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+        Frontend Mentor
+      </a>
+      . Coded by <a href="#">Rafiw Idrissu</a>.
+    </div>
+  </body>
+</html>
