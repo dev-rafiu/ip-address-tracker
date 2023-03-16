@@ -20,7 +20,13 @@
     <link rel="stylesheet" href="style.css" />
 
     <!-- js file -->
-    <script src="./script.js" defer></script>
+    <script type="module" src="./script.js" defer></script>
+
+    <!-- environment file -->
+    <script type="module" src="./env.js"></script>
+
+    <!-- axios -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
     <title>Frontend Mentor | IP Address Tracker</title>
   </head>
   <body>
@@ -28,25 +34,37 @@
       <header class="header">
         <div class="container">
           <h1 class="title">IP Address Tracker</h1>
-          <form class="" data-search-form>
+          <form class="" data-ip-address-form>
             <input
               type="text"
-              placeholder="  Search for any IP address or domain"
+              placeholder="Search for any IP address or domain"
               class="address-input"
+              data-address-input
             />
             <button type="submit" class="submit-btn" data-submit-btn>
               <img src="./images/icon-arrow.svg" alt="" />
             </button>
           </form>
         </div>
+        <div class="result-modal">
+          <div>
+            <p>IP Address</p>
+            <h3 class="ip-address info"></h3>
+          </div>
+          <div>
+            <p>Location</p>
+            <h3 class="location info"></h3>
+          </div>
+          <div>
+            <p>Timezone</p>
+            <h3 class="timezone info"></h3>
+          </div>
+          <div>
+            <p>ISP</p>
+            <h3 class="isp info"></h3>
+          </div>
+        </div>
       </header>
-      <div class="result-modal">
-        <div><p>IP Address</p></div>
-        <div><p>Location</p></div>
-        <div><p>Timezone</p></div>
-        <div><p>UTC</p></div>
-        <div><p>ISP</p></div>
-      </div>
       <main></main>
     </div>
 

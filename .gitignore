@@ -1,6 +1,5 @@
 /node_modules
-style-guide.md
+env.js
 README-template.md
+style-guide.md
 todos.txt
-.env
-README.md
