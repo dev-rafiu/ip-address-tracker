@@ -19,6 +19,21 @@
     <!-- css file -->
     <link rel="stylesheet" href="style.css" />
 
+    <!-- Leaflet css file -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+
+    <!-- Leaflet js file -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+
     <!-- js file -->
     <script type="module" src="./script.js" defer></script>
 
@@ -30,11 +45,11 @@
     <title>Frontend Mentor | IP Address Tracker</title>
   </head>
   <body>
-    <div class="container">
+    <div class="body-container">
       <header class="header">
-        <div class="container">
+        <div class="container flex">
           <h1 class="title">IP Address Tracker</h1>
-          <form class="" data-ip-address-form>
+          <form class="flex" data-ip-address-form>
             <input
               type="text"
               placeholder="Search for any IP address or domain"
@@ -46,7 +61,7 @@
             </button>
           </form>
         </div>
-        <div class="result-modal">
+        <div class="result-modal flex">
           <div>
             <p>IP Address</p>
             <h3 class="ip-address info"></h3>
@@ -65,17 +80,18 @@
           </div>
         </div>
       </header>
-      <main></main>
-    </div>
+      <main>
+        <div id="map"></div>
+      </main>
 
-    <!-- add offset value dynamically using the API -->
-
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
-        Frontend Mentor
-      </a>
-      . Coded by <a href="#">Rafiw Idrissu</a>.
+      <!-- add offset value dynamically using the API -->
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+          Frontend Mentor
+        </a>
+        . Coded by <a href="#">Rafiw Idrissu</a>.
+      </div>
     </div>
   </body>
 </html>

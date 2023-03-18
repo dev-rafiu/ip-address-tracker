@@ -6,14 +6,42 @@ const timezone = document.querySelector(".timezone");
 const ispElement = document.querySelector(".isp");
 
 async function getIPAddress(ipaddress) {
-  const API = `https://geo.ipify.org/api/v2/country?apiKey=${API_KEY}&ipAddress=${ipaddress}`;
-  const { data } = await axios.get(API);
-  const { ip, isp, location } = data;
+  let API;
+  if (ipaddress) {
+    API = `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ipaddress}`;
+  } else {
+    API = `https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}`;
+  }
 
-  ipAddress.textContent = ip;
-  loc.textContent = `${location.region}, ${location.country}`;
-  timezone.textContent = location.timezone;
-  ispElement.textContent = isp;
+  try {
+    const { data } = await axios.get(API);
+    console.log(data.location);
+    const { ip, isp, location } = data;
+
+    ipAddress.textContent = ip;
+    loc.textContent = `${location.city}, ${location.region}, ${location.country}`;
+    timezone.textContent = location.timezone;
+    ispElement.textContent = isp;
+
+    // === MAP ===
+    const map = L.map("map").setView([location.lat, location.lng], 13);
+
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution:
+        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(map);
+
+    const marker = L.marker([location.lat, location.lng]).addTo(map);
+    const circle = L.circle([location.lat, location.lng], {
+      color: "red",
+      fillColor: "#f03",
+      fillOpacity: 0.5,
+      radius: 500,
+    }).addTo(map);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 const form = document.querySelector("[data-ip-address-form]");
@@ -24,6 +52,9 @@ form.addEventListener("submit", (e) => {
   //   return;
   // }
   getIPAddress("154.160.23.75");
-
   e.preventDefault();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  getIPAddress();
 });
