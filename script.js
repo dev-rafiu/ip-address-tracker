@@ -1,8 +1,8 @@
 import { API_KEY } from "./env.js";
 
-const ipAddress = document.querySelector(".ip-address");
-const loc = document.querySelector(".location");
-const timezone = document.querySelector(".timezone");
+const ipAddressElement = document.querySelector(".ip-address");
+const locationElement = document.querySelector(".location");
+const timezoneElement = document.querySelector(".timezone");
 const ispElement = document.querySelector(".isp");
 
 async function getIPAddress(ipaddress) {
@@ -18,9 +18,9 @@ async function getIPAddress(ipaddress) {
     console.log(data.location);
     const { ip, isp, location } = data;
 
-    ipAddress.textContent = ip;
-    loc.textContent = `${location.city}, ${location.region}, ${location.country}`;
-    timezone.textContent = location.timezone;
+    ipAddressElement.textContent = ip;
+    locationElement.textContent = `${location.city}, ${location.region}, ${location.country}`;
+    timezoneElement.textContent = location.timezone;
     ispElement.textContent = isp;
 
     // === MAP ===
@@ -48,11 +48,11 @@ const form = document.querySelector("[data-ip-address-form]");
 const addressInput = document.querySelector("[data-address-input]");
 form.addEventListener("submit", (e) => {
   const { value } = addressInput;
-  // if (value === "") {
-  //   return;
-  // }
-  getIPAddress("154.160.23.75");
   e.preventDefault();
+  if (value === "") {
+    return;
+  }
+  getIPAddress("154.160.23.75");
 });
 
 document.addEventListener("DOMContentLoaded", () => {
